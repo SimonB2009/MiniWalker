@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Movement2d : MonoBehaviour
 {
-    public float speed = 20f;
-    public float jumpForce = 1f;
-    private Vector3 moveDir;
+    float speed = 20f;
+    float jumpForce = 25f; //hoehe
+    float velocity;
+    float jumpY;
 
     private Rigidbody2D _rigidbody;
 
@@ -18,8 +19,12 @@ public class Movement2d : MonoBehaviour
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement,0,0) * Time.deltaTime * speed;
 
-        if (Input.GetKey(KeyCode.S)) {
-            transform.position += new Vector3(0, jumpForce).normalized;
+        if (Input.GetKey(KeyCode.Space)) {
+            velocity = jumpForce;
+            jumpY = transform.position.y;
         }
+        if (jumpY == transform.position.y) {
+            transform.Translate(new Vector3(0, velocity, 0) * Time.deltaTime);
+        }  
     }
 }
