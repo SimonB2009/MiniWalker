@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Movement2d : MonoBehaviour
 {
-    float speed = 20f;
-    float jumpForce = 25f; //hoehe
+    float speed = 8f;
+    float jumpForce = 20f; //hoehe
     float velocity;
     float jumpY;
 
