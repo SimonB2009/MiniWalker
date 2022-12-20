@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    float speed = 8f;
-    float jumpForce = 50f; //hoehe
+    float speed = 8f; //should be the same as the player speed
     Rigidbody2D m_Rigidbody;
 
 
@@ -19,10 +18,10 @@ public class Camera : MonoBehaviour
         transform.Translate(new Vector2(movement,0) * Time.deltaTime * speed);
         //m_Rigidbody.AddForce(new Vector2(movement * speed, 0));
 
-        if (Input.GetKey(KeyCode.Space)) {
+        /*if (Input.GetKey(KeyCode.Space)) {
             //m_Rigidbody.AddForce(transform.up );
             m_Rigidbody.AddForce(new Vector2(0, jumpForce));
-        }  
+        }*/  
         
     }
 }
