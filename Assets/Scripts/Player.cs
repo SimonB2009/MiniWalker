@@ -8,9 +8,10 @@ public class Player : MonoBehaviour
     float jumpForce = 100f; //hoehe
     float selectnummberA = 0;
     float selectnummberD = 0;
+    bool inAir = false;
     Rigidbody2D m_Rigidbody;
     private BoxCollider2D coll;
-    //blic Animator animator;
+    private Animator anim;
     //public CharacterController2D controller;
     [SerializeField] private LayerMask jumpableGround;
 
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
         selectnummberA++;                   //turn test
         Rotate(1,selectnummberA); //left
         selectnummberD++;
@@ -32,12 +34,25 @@ public class Player : MonoBehaviour
         var movement = Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(movement,0) * Time.deltaTime * speed);
 
-        //animator.SetFloat("speed", Mathf.Abs(movement));
+        if (movement != 0) {
+            anim.SetBool("running", true);
+        } else {
+            anim.SetBool("running", false);
+        }
+
+        if (inAir == true) {
+            anim.SetBool("jumping", true);
+        } else {
+            anim.SetBool("jumping", false);
+        }
+
+        if (isGrounded() == true) {inAir = false;}
 
         if (Input.GetKey(KeyCode.Space)) {
             if (isGrounded() == true) {
                 //animator.SetBool("jumping", true);
                 m_Rigidbody.AddForce(new Vector2(0, jumpForce));
+                inAir = true;
             }
         } 
 
