@@ -218,7 +218,6 @@ GameObject:
   - component: {fileID: 227429886}
   - component: {fileID: 227429890}
   - component: {fileID: 227429894}
-  - component: {fileID: 227429891}
   - component: {fileID: 227429887}
   m_Layer: 0
   m_Name: Player
@@ -239,7 +238,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 2
   m_GravityScale: 5
@@ -261,7 +260,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007962834, y: -0.0056995153}
+  m_Offset: {x: -0.007962838, y: -0.048152067}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -272,7 +271,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16354051, y: 0.13001564}
+  m_Size: {x: 0.16354051, y: 0.21492077}
   m_EdgeRadius: 0
 --- !u!212 &227429888
 SpriteRenderer:
@@ -351,22 +350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6fc925278aec16488c3eae2487ff46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &227429891
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 227429885}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.011398792, y: -0.09119239}
-  serializedVersion: 2
-  m_Radius: 0.06810846
+  jumpableGround:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &227429894
 Animator:
   serializedVersion: 3
@@ -849,7 +835,7 @@ GameObject:
   - component: {fileID: 1363101533}
   - component: {fileID: 1363101536}
   - component: {fileID: 1363101535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
