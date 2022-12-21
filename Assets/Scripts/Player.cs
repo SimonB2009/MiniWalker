@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
     float selectnummberA = 0;
     float selectnummberD = 0;
     Rigidbody2D m_Rigidbody;
+    //public Animator animator;
+    //public CharacterController2D controller;
 
 
     private void Start()
