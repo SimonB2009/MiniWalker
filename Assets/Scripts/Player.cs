@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
         if (isGrounded() == true) {inAir = false;}
 
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKey(KeyCode.Space)) { //JoistickJump.readJoistick() == true
             if (isGrounded() == true) {
                 //animator.SetBool("jumping", true);
                 m_Rigidbody.AddForce(new Vector2(0, jumpForce));
@@ -56,16 +56,16 @@ public class Player : MonoBehaviour
             }
         } 
 
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKeyDown(KeyCode.A)) { //JoistickMove.readJoistick() == false
             //animator.SetBool("jumping", false);
             selectnummberA++;
-            Rotate(1,selectnummberA); //left
+            Rotate(1,selectnummberA); //left   //Attention movement is missing
         }   
 
-        if (Input.GetKeyDown(KeyCode.D)) {
+        if (Input.GetKeyDown(KeyCode.D)) { //JoistickMove.readJoistick() == true
             //animator.SetBool("jumping", false);
             selectnummberD++;
-            Rotate(0,selectnummberD); //right
+            Rotate(0,selectnummberD); //right   //Attention movement is missing
         } 
         
     }
