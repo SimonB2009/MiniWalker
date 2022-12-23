@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     Rigidbody2D m_Rigidbody;
     private BoxCollider2D coll;
     private Animator anim;
+    public Joystick joystick;
+
     //public CharacterController2D controller;
     [SerializeField] private LayerMask jumpableGround;
 
@@ -31,7 +33,7 @@ public class Player : MonoBehaviour
     {   
         isGrounded();
         //MOVEMENT
-        var movement = Input.GetAxis("Horizontal");
+        var movement = joystick.Horizontal; //Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(movement,0) * Time.deltaTime * speed);
 
         if (movement != 0) {
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
 
         if (isGrounded() == true) {inAir = false;}
 
-        if (Input.GetKey(KeyCode.Space)) { //JoistickJump.readJoistick() == true
+        if (Input.GetKey(KeyCode.Space)) { //Input.GetKey(KeyCode.Space)
             if (isGrounded() == true) {
                 //animator.SetBool("jumping", true);
                 m_Rigidbody.AddForce(new Vector2(0, jumpForce));
