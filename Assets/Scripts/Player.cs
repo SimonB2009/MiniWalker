@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     private Animator anim;
     public Joystick joystick;
 
-    //public CharacterController2D controller;
     [SerializeField] private LayerMask jumpableGround;
 
 
@@ -58,13 +57,12 @@ public class Player : MonoBehaviour
             }
         } 
 
-        if (Input.GetKeyDown(KeyCode.A)) { //JoistickMove.readJoistick() == false
-            //animator.SetBool("jumping", false);
+        if (movement <= -0.02) { //Input.GetKeyDown(KeyCode.A)
             selectnummberA++;
             Rotate(1,selectnummberA); //left   //Attention movement is missing
         }   
 
-        if (Input.GetKeyDown(KeyCode.D)) { //JoistickMove.readJoistick() == true
+        if (movement >= 0.02) { //Input.GetKeyDown(KeyCode.D)
             //animator.SetBool("jumping", false);
             selectnummberD++;
             Rotate(0,selectnummberD); //right   //Attention movement is missing
