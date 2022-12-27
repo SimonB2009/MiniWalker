@@ -565,6 +565,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6fc925278aec16488c3eae2487ff46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
+  jumpForce: 100
+  selectnummberA: 0
+  selectnummberD: 0
+  positionx: 0
+  positiony: 0
+  movement: 0
+  inAir: 0
+  coll: {fileID: 0}
+  anim: {fileID: 0}
   joystick: {fileID: 40211982}
   jumpableGround:
     serializedVersion: 2

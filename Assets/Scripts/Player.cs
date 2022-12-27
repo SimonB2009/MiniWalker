@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 
         if (isGrounded() == true) {inAir = false;}
 
-        if (Input.GetKey(KeyCode.Space)) { //Input.GetKey(KeyCode.Space)
+        if (isJumping() == true) { //Input.GetKey(KeyCode.Space)
             if (isGrounded() == true) {
                 //animator.SetBool("jumping", true);
                 m_Rigidbody.AddForce(new Vector2(0, jumpForce));
@@ -97,6 +97,13 @@ public class Player : MonoBehaviour
 
     public bool isGrounded() {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0, Vector2.down, .1f, jumpableGround);
+    }
+
+    public bool isJumping() {
+        if (Input.touchCount > 0) {
+            Touch touch = Input.GetTouch(0);
+            if (touch.position.x > 380) {return true;} else {return false;}
+        } else {return false;}
     }
 
 }
