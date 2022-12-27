@@ -4,17 +4,20 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-    float speed = 8f;
-    float jumpForce = 100f; //hoehe
-    float selectnummberA = 0;
-    float selectnummberD = 0;
-    bool inAir = false;
+    public float speed = 8f;
+    public float jumpForce = 100f; //hoehe
+    public float selectnummberA = 0;
+    public float selectnummberD = 0;
+    public float positionx = 0;
+    public float positiony = 0;
+    public float movement;
+    public bool inAir = false;
     Rigidbody2D m_Rigidbody;
-    private BoxCollider2D coll;
-    private Animator anim;
+    public BoxCollider2D coll;
+    public Animator anim;
     public Joystick joystick;
 
-    [SerializeField] private LayerMask jumpableGround;
+    [SerializeField] public LayerMask jumpableGround;
 
 
     private void Start()
@@ -32,8 +35,11 @@ public class Player : MonoBehaviour
     {   
         isGrounded();
         //MOVEMENT
-        var movement = joystick.Horizontal; //Input.GetAxis("Horizontal");
+        movement = joystick.Horizontal; //Input.GetAxis("Horizontal");
         transform.Translate(new Vector2(movement,0) * Time.deltaTime * speed);
+
+        positionx = transform.position.x;
+        positiony = transform.position.y;
 
         if (movement != 0) {
             anim.SetBool("running", true);
