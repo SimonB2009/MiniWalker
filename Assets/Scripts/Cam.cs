@@ -8,13 +8,12 @@ public class Cam : MonoBehaviour
 
     private void Start()
     {
-        //player = GameObject.Find("Player").GetComponent<Player>();
+
     }
 
     private void Update()
     {   
-        float speed = player.speed;
-        float movement = player.movement;
-        transform.Translate(new Vector2(movement, 0) * Time.deltaTime * speed);
+        transform.position = player.transform.position;
+        transform.Translate(new Vector3(4,0,-10) * 1);
     }
 }
