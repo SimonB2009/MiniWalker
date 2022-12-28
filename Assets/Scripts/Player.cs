@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
      void Rotate (float rotation, float selectnummber) { //0=right 1=left
        
-        if (rotation == 0) { //rechtsa
+        if (rotation == 0) { //rechts
             selectnummberA = 0;
             speed = 8f;
             if (selectnummber == 1) {
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
 
     public bool isJumping() {
         if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(0);
+            Touch touch = Input.GetTouch(1);
             if (touch.position.x > 380) {return true;} else {return false;}
         } else {return false;}
     }

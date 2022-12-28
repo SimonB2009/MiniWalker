@@ -13,6 +13,8 @@ public class Cam : MonoBehaviour
 
     private void Update()
     {   
-        transform.Translate(new Vector2(player.movement, 0) * Time.deltaTime * player.speed);
+        float speed = player.speed;
+        float movement = player.movement;
+        transform.Translate(new Vector2(movement, 0) * Time.deltaTime * speed);
     }
 }
