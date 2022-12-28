@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 8f;
-    public float jumpForce = 100f; //hoehe
+    public float speed = 4f;
+    public float jumpForce = 400f; //hoehe
     public float selectnummberA = 0;
     public float selectnummberD = 0;
     public float positionx = 0;
@@ -36,10 +36,8 @@ public class Player : MonoBehaviour
         isGrounded();
         //MOVEMENT
         movement = joystick.Horizontal; //Input.GetAxis("Horizontal");
+        
         transform.Translate(new Vector2(movement,0) * Time.deltaTime * speed);
-
-        positionx = transform.position.x;
-        positiony = transform.position.y;
 
         if (movement != 0) {
             anim.SetBool("running", true);
@@ -80,7 +78,7 @@ public class Player : MonoBehaviour
        
         if (rotation == 0) { //rechts
             selectnummberA = 0;
-            speed = 8f;
+            speed = 4f;
             if (selectnummber == 1) {
                 transform.Rotate(0, 180, 0);
             } 
@@ -88,7 +86,7 @@ public class Player : MonoBehaviour
         
         if (rotation == 1) { //links
             selectnummberD = 0;
-            speed = -8f;
+            speed = -4f;
             if (selectnummber == 1) {
                 transform.Rotate(0, 180, 0);
             } 
@@ -101,7 +99,7 @@ public class Player : MonoBehaviour
 
     public bool isJumping() {
         if (Input.touchCount > 0) {
-            Touch touch = Input.GetTouch(1);
+            Touch touch = Input.GetTouch(0);
             if (touch.position.x > 380) {return true;} else {return false;}
         } else {return false;}
     }

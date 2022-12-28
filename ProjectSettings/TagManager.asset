@@ -53,6 +53,3 @@ TagManager:
   - name: Map
     uniqueID: 523094023
     locked: 0
-  - name: joistick
-    uniqueID: 779824767
-    locked: 0
